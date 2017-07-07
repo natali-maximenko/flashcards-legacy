@@ -6,17 +6,17 @@ Rails.application.routes.draw do
   scope module: 'home' do
     resources :user_sessions, only: [:new, :create]
     resources :users, only: [:new, :create]
-    get 'login' => 'user_sessions#new', :as => :login
+    get 'login', to: 'user_sessions#new', as: :login
 
-    post 'oauth/callback' => 'oauths#callback'
-    get 'oauth/callback' => 'oauths#callback'
-    get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
+    post 'oauth/callback', to: 'oauths#callback'
+    get 'oauth/callback', to: 'oauths#callback'
+    get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
   end
 
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
     resources :users, only: :destroy
-    post 'logout' => 'user_sessions#destroy', :as => :logout
+    post 'logout', to: 'user_sessions#destroy', as: :logout
 
     resources :cards
 
@@ -27,10 +27,10 @@ Rails.application.routes.draw do
       end
     end
 
-    put 'review_card' => 'trainer#review_card'
-    get 'trainer' => 'trainer#index'
+    put 'review_card', to: 'trainer#review_card', as: :review_card
+    get 'trainer', to: 'trainer#index', as: :trainer
 
-    get 'profile/:id/edit' => 'profile#edit', as: :edit_profile
-    put 'profile/:id' => 'profile#update', as: :profile
+    get 'profile/:id/edit', to: 'profile#edit', as: :edit_profile
+    put 'profile/:id', to: 'profile#update', as: :profile
   end
 end

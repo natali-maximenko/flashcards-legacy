@@ -1,6 +1,5 @@
 require 'rails_helper'
-require 'support/helpers/trainer_helper.rb'
-include TrainerHelper
+#require 'support/helpers/trainer_helper.rb'
 
 describe Dashboard::TrainerController do
   describe 'review_card' do

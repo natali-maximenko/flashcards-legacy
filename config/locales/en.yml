@@ -45,3 +45,10 @@ en:
           confirmation: 'Values do not match.'
           taken: 'Not a unique value.'
           record_invalid: 'Record invalid.'
+        models:
+          card:
+            attributes:
+              user:
+                required: 'user required'
+              block:
+                required: 'user required'
