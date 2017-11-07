@@ -30,7 +30,6 @@ Rails.application.routes.draw do
     put 'review_card', to: 'trainer#review_card', as: :review_card
     get 'trainer', to: 'trainer#index', as: :trainer
 
-    get 'profile/:id/edit', to: 'profile#edit', as: :edit_profile
-    put 'profile/:id', to: 'profile#update', as: :profile
+    resources :profile, only: [:edit, :update]
   end
 end
