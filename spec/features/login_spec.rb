@@ -1,4 +1,5 @@
 require 'rails_helper'
+include LoginHelper
 
 describe 'password authentication' do
   describe 'register' do

@@ -61,12 +61,12 @@ RSpec.describe Card, type: :model do
     expect(card.translated_text).to eq('house')
   end
 
-  # it 'create card errors OK' do
-  #   card = Card.create(original_text: 'дом', translated_text: 'house',
-  #                      user_id: 1, block_id: 1)
-  #   p card.errors
-  #   expect(card.errors.any?).to be false
-  # end
+  it 'create card errors OK' do
+    block = create :block_with_one_card
+    card = block.cards.first
+    
+    expect(card.errors.any?).to be false
+  end
 
   it 'set_review_date OK' do
     card = Card.create(original_text: 'дом', translated_text: 'house',

@@ -1,4 +1,5 @@
 require 'rails_helper'
+include LoginHelper
 
 describe 'review cards without blocks' do
   describe 'training without cards' do
