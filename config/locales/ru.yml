@@ -40,8 +40,16 @@ ru:
   activerecord:
     errors:
       messages:
-        blank: 'Заполните поле.'
+        blank: 'Необходимо заполнить поле.'
         too_short: 'Короткое значение.'
         confirmation: 'Значения не совпадают.'
         taken: 'Не уникальное значение.'
         invalid: 'Не верный формат.'
+        record_invalid: 'Битая запись.'
+      models:
+          card:
+            attributes:
+              user:
+                required: 'Ошибка ассоциации.'
+              block:
+                required: 'Выберите колоду из выпадающего списка.'

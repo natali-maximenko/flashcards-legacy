@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/helpers/login_helper.rb'
 include LoginHelper
 
 describe 'password authentication' do
@@ -9,12 +8,12 @@ describe 'password authentication' do
     end
 
     it 'register TRUE' do
-      register('test@test.com', '12345', '12345', 'Зарегистрироваться')
+      register('test@test.com', '12345', '12345', I18n.t('sing_up_label'))
       expect(page).to have_content 'Пользователь успешно создан.'
     end
 
     it 'password confirmation FALSE' do
-      register('test@test.com', '12345', '56789', 'Зарегистрироваться')
+      register('test@test.com', '12345', '56789', I18n.t('sing_up_label'))
       expect(page).to have_content "Значения не совпадают."
     end
 

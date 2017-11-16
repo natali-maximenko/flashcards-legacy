@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Card do
+RSpec.describe Card, type: :model do
   it 'create card with empty original text' do
     card = Card.create(original_text: '', translated_text: 'house', user_id: 1,
                        block_id: 1)
@@ -62,8 +62,9 @@ describe Card do
   end
 
   it 'create card errors OK' do
-    card = Card.create(original_text: 'дом', translated_text: 'house',
-                       user_id: 1, block_id: 1)
+    block = create :block_with_one_card
+    card = block.cards.first
+    
     expect(card.errors.any?).to be false
   end
 

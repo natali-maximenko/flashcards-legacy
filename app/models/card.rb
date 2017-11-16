@@ -7,10 +7,11 @@ class Card < ActiveRecord::Base
   before_validation :set_review_date_as_now, on: :create
   validate :texts_are_not_equal
   validates :original_text, :translated_text, :review_date,
-            presence: { message: 'Необходимо заполнить поле.' }
-  validates :user_id, presence: { message: 'Ошибка ассоциации.' }
+            presence: { message: I18n.t('activerecord.errors.messages.blank') }
+  validates :user_id,
+            presence: { message: I18n.t('activerecord.errors.models.card.attributes.user.required') }
   validates :block_id,
-            presence: { message: 'Выберите колоду из выпадающего списка.' }
+            presence: { message: I18n.t('activerecord.errors.models.card.attributes.block.required') }
   validates :interval, :repeat, :efactor, :quality, :attempt, presence: true
 
   mount_uploader :image, CardImageUploader
